@@ -1,0 +1,45 @@
+﻿@model FullDatabase
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Channel</th>
+            @foreach (var monster in Model.Monsters)
+            {
+                <th class="mob-@(monster.MonsterId)">@monster.Name (@monster.RespawnTime min) <a class="btn-sm" onclick="hide(@(monster.MonsterId))">❎</a></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var channel in Model.Channels)
+        {
+            <tr>
+                <td>@channel.Name</td>
+                @foreach (var monster in Model.Monsters)
+                {
+                    <td class="mob-@(monster.MonsterId)">
+                        <div class="row">
+                            <div class="col" id="@(channel.Name)_@(monster.MonsterId)">Unknown</div>
+                            <div class="col-sm">
+                                <a class="btn-sm btn-success" onclick="update('kill', '@(channel.Name)', @(monster.MonsterId))">☠</a>
+                                <a class="btn-sm btn-danger" onclick="update('nospot', '@(channel.Name)', @(monster.MonsterId))">🛑</a>
+                            </div>
+                        </div>
+                    </td>
+                }
+            </tr>
+        }
+        <tr>
+            <td></td>
+            @foreach (var monster in Model.Monsters)
+            {
+                <td class="mob-@(monster.MonsterId)">
+                    <a class="btn btn-danger text-white" onclick="clearMob(@(monster.MonsterId))">Clear</a>
+                </td>
+            }
+        </tr>
+
+    </tbody>
+</table>
+<ul id="timelist" class="list-group"></ul>
+
+<script src="~/js/site.js"></script>

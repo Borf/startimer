@@ -1,0 +1,14 @@
+﻿table td, table th {
+    border-right: 2px solid #DFE2E6;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+#timelist span {
+    width: 100px;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+}
