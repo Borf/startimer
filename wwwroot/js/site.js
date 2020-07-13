@@ -1,6 +1,5 @@
 ﻿var times = [];
 var secondTimer = null;
-var monsters = { @foreach(var mob in Model.Monsters) { @Html.Raw($"'{mob.MonsterId}' : '{mob.Name}', "); } }
 
 
 function pad(nr) {
