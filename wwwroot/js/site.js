@@ -31,7 +31,7 @@ function updateTime(data) {
         el = $(`
 <li id="sort` + data.channel + "_" + data.monsterId + `" class="list-group-item py-1">
     <span class="badge-pill badge-info">` + data.channel + `</span>
-    <span class="badge-pill badge-secondary">` + txt + `</span><span>` +
+    <span class="badge-pill badge-dark">` + txt + `</span><span>` +
             monsters[data.monsterId] + " " +
             `</span>   <a class="btn-sm btn-success" onclick="update('kill', '` + data.channel + `', ` + data.monsterId + `)">☠</a>
     <a class="btn-sm btn-danger" onclick="update('nospot', '`+ data.channel + `', ` + data.monsterId + `))">🛑</a>
